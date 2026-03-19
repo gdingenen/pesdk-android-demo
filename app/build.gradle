@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'ly.img.android.sdk'
-apply plugin: 'kotlin-android'
 apply plugin: 'com.google.devtools.ksp'
 
 IMGLY.configure {
@@ -46,13 +45,13 @@ IMGLY.configure {
 android {
     namespace "com.photoeditorsdk.android.app"
 
-    compileSdkVersion 35
-    buildToolsVersion '35.0.0'
+    compileSdk 35
+    buildToolsVersion '36.0.0'
 
     defaultConfig {
         applicationId "com.photoeditorsdk.android.app"
-        minSdkVersion 21
-        targetSdkVersion 35
+        minSdk 21
+        targetSdk 35
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -66,8 +65,12 @@ android {
         }
     }
 
-    lintOptions {
+    lint {
         abortOnError false
+    }
+
+    buildFeatures {
+        resValues = true
     }
 
     compileOptions {
